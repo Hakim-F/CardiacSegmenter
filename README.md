@@ -110,6 +110,8 @@ The segmentation output: `inputImageSeg.nii.gz`
 
 ## Running training
 
+The code for training is within the `Training` directory of this repository.
+
 Open the `config/system.py` and edit all the paths there to match your system.
 
 The `data_root` directory should contain the images with the ground truth segmentations with the following naming convention:
