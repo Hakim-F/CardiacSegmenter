@@ -1,12 +1,11 @@
-# Overview
-## CardiacSegmenter
+# CardiacSegmenter
 
-This repository contains pretrained U-Net [reference] models for the segmentation of anatomical structures of the heart on CINE short-axis, LGE, T1, Post T1, T2, and AO flow images. The code used to train these models is an edited version of the acdc_segmenter [reference].
+This repository contains pretrained U-Net [reference] models for the segmentation of anatomical structures of the heart on CINE short-axis, LGE, T1, Post T1, T2, and AO flow images. The code used to train these models is an edited version of the [acdc_segmenter](https://github.com/baumgach/acdc_segmenter).
 
-#Anatomical structure segmented
+## Anatomical structure segmented:
 * CINE : Left Ventricle endocardium, Left Ventricle myocardium, Right Ventricle endocardium
 * LGE : Left Ventricle endocardium, Left Ventricle myocardium, Scar tissue
-* T1 - Post T1 - T2 : Left ventricle endocardium, Left ventricle myocardium
+* T1, Post T1, T2 : Left ventricle endocardium, Left ventricle myocardium
 * FLOW : Aorta
 
 # Installation
@@ -67,9 +66,9 @@ run
 
 ``` python CardiacModels/Unet2DCINE.py -image inputImage.nii.gz ```
 
-Where `inputImage.nii.gz` is 4D nifti cine short-axis image.
+Where `inputImage.nii.gz` is a 4D nifti cine short-axis image.
 
-The segmentation output will be `inputImageSeg.nii.gz`
+The segmentation output:`inputImageSeg.nii.gz`
 
 ### LGE 
 
@@ -77,9 +76,9 @@ run
 
 ``` python CardiacModels/Unet2DLGE.py -image inputImage.nii.gz ```
 
-Where `inputImage.nii.gz` is 3D nifti LGE image.
+Where `inputImage.nii.gz` is a 3D nifti LGE image.
 
-The segmentation output will be `inputImageMyoScarSegSelectedRF.nii.gz`
+The segmentation output: `inputImageMyoScarSegSelectedRF.nii.gz`
 
 
 ### T1 - Post T1 - T2
@@ -88,10 +87,11 @@ run
 
 ``` python CardiacModels/Unet2D_T1_PostT1_T2.py -sequence Seq -image inputImage.nii.gz ```
 
-where `Seq` is the sequence of `inputImage.nii.gz` : either `T1`, `PostT1` or `T2`
-Where `inputImage.nii.gz` is 3D nifti T1, PostT1 or T2 image.
+Where `Seq` is the sequence of `inputImage.nii.gz` : either `T1`, `PostT1` or `T2`
 
-The segmentation output will be `inputImageSegSelected.nii.gz`
+Where `inputImage.nii.gz` is a 3D nifti T1, PostT1 or T2 image.
+
+The segmentation output: `inputImageSegSelected.nii.gz`
 
 example: ```python CardiacModels/Unet2D_T1_PostT1_T2.py -sequence PostT1 -image image.nii.gz ```
 
@@ -101,10 +101,11 @@ run
 
 ``` python CardiacModels/Unet2DFLOW.py -image inputImage.nii.gz ```
 
-Where `inputImage.nii.gz` is 4D nifti AO flow magnitude image (1 slice with multiple frames).
+Where `inputImage.nii.gz` is a 4D nifti AO flow magnitude image (1 slice with multiple frames).
 
-The segmentation output will be `inputImageSeg.nii.gz`
+The segmentation output: `inputImageSeg.nii.gz`
 
 
 ## Running training
 
+ 
