@@ -139,3 +139,26 @@ Then, navigate to [localhost:8008](localhost:8008) in your browser to open tenso
 
 ## References
 
+ In case you find the training code useful, don't hesitate to give appropriate credit to it by citing the related paper, 
+
+ ```
+@article{baumgartner2017exploration,
+  title={An Exploration of {2D} and {3D} Deep Learning Techniques for Cardiac {MR} Image Segmentation},
+  author={Baumgartner, Christian F and Koch, Lisa M and Pollefeys, Marc and Konukoglu, Ender},
+  journal={arXiv preprint arXiv:1709.04496},
+  year={2017}
+}
+```
+
+Paper describing the U-Net architecture:
+
+ ```
+@inproceedings{ronneberger2015u,
+  title={U-net: Convolutional networks for biomedical image segmentation},
+  author={Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
+  booktitle={International Conference on Medical image computing and computer-assisted intervention},
+  pages={234--241},
+  year={2015},
+  organization={Springer}
+}
+```
