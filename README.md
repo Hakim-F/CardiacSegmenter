@@ -4,7 +4,7 @@ This repository contains pretrained U-Net models for the segmentation of anatomi
 
 If you have any question regarding this repository, send them to this [email](mailto:mhakim.fadil@gmail.com)
 
-## Cardiac MR Modality
+## Region of interest
 * CINE : Left Ventricle endocardium, Left Ventricle myocardium, Right Ventricle endocardium
 * LGE : Left Ventricle endocardium, Left Ventricle myocardium, Scar tissue
 * T1, Post T1, T2 : Left ventricle endocardium, Left ventricle myocardium
