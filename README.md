@@ -1,6 +1,6 @@
 # CardiacSegmenter
 
-This repository contains pretrained U-Net [reference] models for the segmentation of anatomical structures of the heart on CINE short-axis, LGE, T1, Post T1, T2, and AO flow images. The code used to train these models is an edited version of the [acdc_segmenter](https://github.com/baumgach/acdc_segmenter).
+This repository contains pretrained U-Net models for the segmentation of anatomical structures of the heart on CINE short-axis, LGE, T1, Post T1, T2, and AO flow images. The code used to train these models is an edited version of the [acdc_segmenter](https://github.com/baumgach/acdc_segmenter).
 
 If you have any question regarding this repository, send them to this [email](mailto:mhakim.fadil@gmail.com)
 
