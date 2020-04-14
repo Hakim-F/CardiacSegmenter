@@ -2,6 +2,9 @@
 # Christian F. Baumgartner (c.f.baumgartner@gmail.com)
 # Lisa M. Koch (lisa.margret.koch@gmail.com)
 
+#Edited by Hakim Fadil (mhakim.fadil@gmail.com) 
+# Originally named acdc_data.py
+
 import os
 import glob
 import numpy as np
@@ -47,7 +50,6 @@ def prepare_data(input_folder, output_file, mode, size, target_resolution, split
     '''
     Main function that prepares a dataset from the raw challenge data to an hdf5 dataset
     '''
-    mode = '2D'
     assert (mode in ['2D']), 'Unknown mode: %s' % mode
     if mode == '2D' and not len(size) == 2:
         raise AssertionError('Inadequate number of size parameters')
@@ -59,61 +61,21 @@ def prepare_data(input_folder, output_file, mode, size, target_resolution, split
     num_slices = {'test': 0, 'train': 0}
 
     logging.info('Counting files and parsing meta data...')
-
-    for folder in os.listdir(input_folder):
-
-        folder_path = os.path.join(input_folder, folder)
-
-        if os.path.isdir(folder_path):
-
-            if split_test_train:
-                train_test = 'test' if (int(folder[-3:]) % 5 == 0) else 'train'
-            else:
-                train_test = 'train'
-
-            infos = {}
-            for line in open(os.path.join(folder_path, 'Info.cfg')):
-                label, value = line.split(':')
-                infos[label] = value.rstrip('\n').lstrip(' ')
-
-            #patient_id = folder.lstrip('patient')
-
-            for file in glob.glob(os.path.join(folder_path, 'patient???_frame??.nii.gz')):
-
-                file_list[train_test].append(file)
-                #patient_id_list[train_test].append(patient_id)
-
-                systole_frame = int(infos['ES'])
-                diastole_frame = int(infos['ED'])
-
-                file_base = file.split('.')[0]
-                frame = int(file_base.split('frame')[-1])
-
-                nifty_img = nib.load(file)
-                num_slices[train_test] += nifty_img.shape[2]
-
+    
     cptImage=0
     for file in glob.glob(os.path.join(input_folder, '*_image.nii.gz')):
 
         if split_test_train:
-            train_test = 'test' if (cptImage % 5 == 1) else 'train' #aiming for 80/20%
+            train_test = 'test' if (cptImage % 5 == 0) else 'train' #aiming for 80/20%
         else:
             train_test = 'train'
                 
         file_list[train_test].append(file)
         cptImage=cptImage+1
 
-        #patient_id_list[train_test].append(patient_id)
         nifty_img = nib.load(file)
         num_slices[train_test] += nifty_img.shape[2]
-        
-        
-    validationDataFilename = "D://DeepLearning//acdc_segmenterPM//ValidationData.txt"
-    validationFileToWrite = open(validationDataFilename,'w+')
     
-    for file in file_list['test']:
-        validationFileToWrite.write(file+'\n')
-    validationFileToWrite.close()
     
     # Write the small datasets
     nx, ny = size
@@ -243,25 +205,23 @@ def _release_tmp_memory(img_list, mask_list, train_test):
 
 def load_and_maybe_process_data(input_folder,
                                 preprocessing_folder,
-                                mode,
                                 size,
                                 target_resolution,
                                 force_overwrite=False,
                                 split_test_train=True):
 
     '''
-    This function is used to load and if necessary preprocesses the ACDC challenge data
+    This function is used to load and if necessary preprocesses the data
     
-    :param input_folder: Folder where the raw ACDC challenge data is located 
+    :param input_folder: Folder where the raw data is located 
     :param preprocessing_folder: Folder where the proprocessed data should be written to
-    :param mode: Can either be '2D'. 2D saves the data slice-by-slice, 3D saves entire volumes
     :param size: Size of the output slices/volumes in pixels/voxels
     :param target_resolution: Resolution to which the data should resampled. Should have same shape as size
     :param force_overwrite: Set this to True if you want to overwrite already preprocessed data [default: False]
      
     :return: Returns an h5py.File handle to the dataset
     '''
-
+    mode = '2D'
     size_str = '_'.join([str(i) for i in size])
     res_str = '_'.join([str(i) for i in target_resolution])
 
@@ -286,7 +246,7 @@ def load_and_maybe_process_data(input_folder,
 
 if __name__ == '__main__':
 
-    input_folder = '/scratch_net/bmicdl03/data/ACDC_challenge_20170617'
+    input_folder = '/data/'
     preprocessing_folder = 'preproc_data'
 
     d=load_and_maybe_process_data(input_folder, preprocessing_folder, '2D', (212,212), (1.36719, 1.36719))

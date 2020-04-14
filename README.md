@@ -108,4 +108,34 @@ The segmentation output: `inputImageSeg.nii.gz`
 
 ## Running training
 
- 
+Open the `config/system.py` and edit all the paths there to match your system.
+
+The `data_root` directory should contain the images with the ground truth segmentations with the following naming convention:
+
+image: `imageName.nii.gz`  groundtruth: `imageName_gt.nii.gz` 
+
+By following this convention, the script will be able to link the image with the groundtruth. 
+
+The image and the groundtruth should be a 3D nifti image.
+
+In case of a 4D CINE short axis image, you should convert it to a 3D image, by stacking the frames.
+Have a look at `dataManagement.py` for more information.
+
+Next, open `train.py` and, at the top of the file, select the experiment for the modality you are considering.
+
+To train a model simpy run:
+
+``` python train.py ```
+
+WARNING: When you run the code on CPU, you need around 12 GB of RAM. Make sure your system is up to the task. If not you can try reducing the batch size, or simplifying the network. 
+
+In `system.py`, a log directory was defined. By default it is called `training_log`. You can start a tensorboard
+session in order to monitor the training of the network(s) by typing the following in a shell with your virtualenv
+activated
+
+``` tensorboard --logdir=training_log --port 8008 ```
+
+Then, navigate to [localhost:8008](localhost:8008) in your browser to open tensorboard.
+
+## References
+

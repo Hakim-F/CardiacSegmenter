@@ -17,7 +17,7 @@ import model as model
 
 from background_generator import BackgroundGenerator
 import config.system as sys_config
-import acdc_data
+import dataManagement
 
 ### EXPERIMENT CONFIG FILE #############################################################
 # Set the config file of the experiment you want to run here:
@@ -69,7 +69,7 @@ def run_training(continue_run):
         train_on_all_data = False
 
     # Load data
-    data = acdc_data.load_and_maybe_process_data(
+    data = dataManagement.load_and_maybe_process_data(
         input_folder=sys_config.data_root,
         preprocessing_folder=sys_config.preproc_folder,
         mode=exp_config.data_mode,
