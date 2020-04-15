@@ -125,6 +125,8 @@ The image and the groundtruth should be a 3D nifti image.
 In case of a 4D CINE short axis image, you should convert it to a 3D image, by stacking the frames.
 Have a look at `dataManagement.py` for more information.
 
+If you are training with a new dataset dont forget to delete the `preproc_data` directory created for the previous dataset.
+
 Next, open `train.py` and, at the top of the file, select the experiment for the modality you are considering.
 
 To train a model simpy run:
