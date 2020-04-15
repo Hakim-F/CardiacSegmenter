@@ -116,9 +116,9 @@ Open the `config/system.py` and edit all the paths there to match your system.
 
 The `data_root` directory should contain the images with the ground truth segmentations with the following naming convention:
 
-image: `imageName.nii.gz`  groundtruth: `imageName_gt.nii.gz` 
+image: `name_image.nii.gz`  groundtruth: `name_image_gt.nii.gz`
 
-By following this convention, the script will be able to link the image with the groundtruth. 
+By following this convention, the script will be able to recognize the image and the groundtruth. 
 
 The image and the groundtruth should be a 3D nifti image.
 
