@@ -249,7 +249,8 @@ if __name__ == '__main__':
     parser.add_argument('-image', '--image_file', type=str,help='(Single case mode) path to 3D image')
     args = parser.parse_args()
     
-    model_path = os.path.abspath("Models/LGE/")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    model_path = os.path.join(dir_path,"Models/LGE/")
     modelSegmentaion_path = os.path.join(model_path, 'LGESegmentationModel')
     modelSliceSelectionRF=os.path.join(model_path, 'LGE_RF_model.sav')
     image_file = args.image_file

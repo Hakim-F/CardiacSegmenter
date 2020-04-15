@@ -272,7 +272,10 @@ if __name__ == '__main__':
             logging.info("Prediction found -> We don't need to perform a new segmentation for "+ image_file)
         else:
             logging.info("Looking for Segmentation Model and RandomForest Selection Model")
+            
+            dir_path = os.path.dirname(os.path.realpath(__file__))
             model_path = os.path.join("Models/",sequence)
+            model_path = os.path.join(dir_path,model_path)
             model_path = os.path.abspath(model_path)
             
             modelSliceSelection_path = os.path.join(model_path, 'T1_RF_model.sav')

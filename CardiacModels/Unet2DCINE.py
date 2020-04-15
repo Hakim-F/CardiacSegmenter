@@ -148,8 +148,9 @@ if __name__ == '__main__':
         description="Script to run deep learning model on CINE image (nii.gz 4D)")
     parser.add_argument('-image', '--image_file', type=str,help='(Single case mode) path to 4D image')
     args = parser.parse_args()
-    
-    model_path = os.path.abspath("Models/CINE/")
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    model_path = os.path.join(dir_path,"Models/CINE/")
     modelCine_path = os.path.join(model_path, 'CINEModel.ckpt')
     
     image_file = args.image_file
