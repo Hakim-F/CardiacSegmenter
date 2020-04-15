@@ -15,9 +15,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 # when it is executed on one of the clusters.
 
 at_biwi = False  # Are you running this code from the ETH Computer Vision Lab (Biwi)?
-project_root = '\Users\Name\DeepLearning\'
-data_root = '\Users\Name\DeepLearning\Data\'
-test_data_root = '\Users\Name\DeepLearning\Data\test\'
+project_root = '/Users/Name/CardiacSegmenter/Training'
+data_root = '/Users/Name/data/'
+test_data_root = '/Users/Name/testData/'
 local_hostnames = ['6ZWL25']  # used to check if on cluster or not,
                                 # enter the name of your local machine
 

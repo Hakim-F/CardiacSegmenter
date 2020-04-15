@@ -64,9 +64,8 @@ def prepare_data(input_folder, output_file, mode, size, target_resolution, split
     
     cptImage=0
     for file in glob.glob(os.path.join(input_folder, '*_image.nii.gz')):
-
         if split_test_train:
-            train_test = 'test' if (cptImage % 5 == 0) else 'train' #aiming for 80/20%
+            train_test = 'test' if (cptImage % 5 == 1) else 'train' #aiming for 80/20%
         else:
             train_test = 'train'
                 

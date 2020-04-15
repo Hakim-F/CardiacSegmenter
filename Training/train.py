@@ -72,7 +72,6 @@ def run_training(continue_run):
     data = dataManagement.load_and_maybe_process_data(
         input_folder=sys_config.data_root,
         preprocessing_folder=sys_config.preproc_folder,
-        mode=exp_config.data_mode,
         size=exp_config.image_size,
         target_resolution=exp_config.target_resolution,
         force_overwrite=False,
