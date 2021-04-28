@@ -159,6 +159,7 @@ Then, navigate to [localhost:8008](localhost:8008) in your browser to open tenso
 }
 ```
 Paper describing the pipeline:
+
 Fadil, H., Totman, J.J., Hausenloy, D.J. et al. A deep learning pipeline for automatic analysis of multi-scan cardiovascular magnetic resonance. J Cardiovasc Magn Reson 23, 47 (2021). https://doi.org/10.1186/s12968-020-00695-z
 
 
