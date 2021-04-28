@@ -2,7 +2,10 @@
 
 This repository contains pretrained U-Net models for the segmentation of anatomical structures of the heart on CINE short-axis, LGE, T1, Post T1, T2, and AO flow images. The code used to train these models is an edited version of the [acdc_segmenter](https://github.com/baumgach/acdc_segmenter).
 
+The related paper is available in open access [here](https://rdcu.be/cjA0f)
+
 If you have any question regarding this repository, send them to this [email](mailto:mhakim.fadil@gmail.com)
+
 
 ## Region of interest
 * CINE : Left Ventricle endocardium, Left Ventricle myocardium, Right Ventricle endocardium
@@ -155,6 +158,9 @@ Then, navigate to [localhost:8008](localhost:8008) in your browser to open tenso
   year={2017}
 }
 ```
+Paper describing the pipeline:
+Fadil, H., Totman, J.J., Hausenloy, D.J. et al. A deep learning pipeline for automatic analysis of multi-scan cardiovascular magnetic resonance. J Cardiovasc Magn Reson 23, 47 (2021). https://doi.org/10.1186/s12968-020-00695-z
+
 
 Paper describing the U-Net architecture:
 
@@ -168,3 +174,4 @@ Paper describing the U-Net architecture:
   organization={Springer}
 }
 ```
+
