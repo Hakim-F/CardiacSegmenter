@@ -1,7 +1,7 @@
 
 cython>=0.23
 setuptools>=35.0
-numpy==1.13.0
+numpy==1.22.0
 nibabel==2.1.0
 h5py==2.7.0
 matplotlib==2.0.1
